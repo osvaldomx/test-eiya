@@ -22,6 +22,32 @@ class Vehiculo(db.Model):
         self.vehiculo_distancia_recorrida = distancia
         self.vehiculo_combustible_consumido = combustible
 
+    def save(self) -> bool:
+        try:
+            db.session.add(self)
+            db.session.commit()
+            return True
+        except Exception as exc:
+            print(exc)
+            return False
+
+    def edit(self) -> bool:
+        try:
+            db.session.commit()
+            return True
+        except Exception as exc:
+            print(exc)
+            return False
+
+    def delete(self) -> bool:
+        try:
+            db.session.delete(self)
+            db.session.commit()
+            return True
+        except Exception as exc:
+            print(exc)
+            return False
+
 class VehiculoSchema(Schema):
     vehiculo_id = fields.Int()
     vehiculo_ubicacion_actual = fields.Str()

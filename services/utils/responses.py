@@ -9,7 +9,7 @@ def response(data):
         'data': data
     }), 200
 
-def bad_request(data):
+def bad_request(data=" "):
     return jsonify({
         'success': False,
         'data': data,
