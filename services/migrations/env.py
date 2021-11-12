@@ -20,6 +20,7 @@ logger = logging.getLogger('alembic.env')
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
+from services.models import vehiculo
 config.set_main_option(
     'sqlalchemy.url',
     str(current_app.extensions['migrate'].db.get_engine().url).replace(
@@ -78,6 +79,7 @@ def run_migrations_online():
             connection=connection,
             target_metadata=target_metadata,
             process_revision_directives=process_revision_directives,
+            compare_type=True,
             **current_app.extensions['migrate'].configure_args
         )
 

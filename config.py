@@ -5,6 +5,7 @@ import os
 
 class Config():
     ORIGINS = ['*']
+    SECRET_KEY = "0svaldo89!"
 
 class DevelopConfig(Config):
     DEBUG = True

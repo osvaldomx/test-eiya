@@ -23,13 +23,23 @@
 <div class="accordion" id="accordionPanels">
     <div class="accordion-item">
       <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
           Crear vehículo
         </button>
       </h2>
-      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne" data-bs-parent="#accordionPanels">
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne" data-bs-parent="#accordionPanels">
         <div class="accordion-body">
-                
+            {% from "_macro.html" import render_field %}
+            <form id="create-form" method="POST">
+                <input type="hidden" name="_method" value="post" />
+                {{render_field(create.id)}}
+                {{render_field(create.ubicacion)}}
+                {{render_field(create.consumo)}}
+                {{render_field(create.distancia)}}
+                {{render_field(create.combustible)}}
+                <br>
+                <button type="submit" class="btn btn-primary">Crear vehículo</button>
+            </form>
         </div>
       </div>
     </div>
@@ -41,7 +51,17 @@
       </h2>
       <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo" data-bs-parent="#accordionPanels">
         <div class="accordion-body">
-            
+            {% from "_macro.html" import render_field %}
+            <form id="edit-form" method="POST">
+                <input type="hidden" name="_method" value="put" />
+                {{render_field(edit.id)}}
+                {{render_field(edit.ubicacion)}}
+                {{render_field(edit.consumo)}}
+                {{render_field(edit.distancia)}}
+                {{render_field(edit.combustible)}}
+                <br>
+                <button type="submit" class="btn btn-warning">Editar vehículo</button>
+            </form>
         </div>
       </div>
     </div>
@@ -53,7 +73,13 @@
       </h2>
       <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree" data-bs-parent="#accordionPanels">
         <div class="accordion-body">
-            
+            {% from "_macro.html" import render_field %}
+            <form id="delete-form" method="POST">
+                <input type="hidden" name="_method" value="delete" />
+                {{render_field(delete.id)}}
+                <br>
+                <button type="submit" class="btn btn-danger">Eliminar vehículo</button>
+            </form>
         </div>
       </div>
     </div>
@@ -65,7 +91,15 @@
         </h2>
         <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree" data-bs-parent="#accordionPanels">
           <div class="accordion-body">
-              
+            {% from "_macro.html" import render_field %}
+            <form id="trip-form" method="POST">
+                <input type="hidden" name="_method" value="create" />
+                {{render_field(trip.id)}}
+                {{render_field(trip.origen)}}
+                {{render_field(trip.destino)}}
+                <br>
+                <button type="submit" class="btn btn-success">Generar viaje</button>
+            </form>
           </div>
         </div>
       </div>

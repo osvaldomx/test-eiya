@@ -1,5 +1,5 @@
 # Test Eiya!
 
-# Instructions
+## Instructions
 
-# Get started
+## Get started

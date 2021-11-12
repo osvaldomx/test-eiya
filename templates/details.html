@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://eiya.mx">Test Eiya!</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" aria-current="page" href="/">Home</a>
+          <a class="nav-link" href="/admin">Admin</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+<h1><center>{{title}}</center></h1>
+
+<div class='container col-sm-auto'>
+    <div class="card">
+        <div class="card-header">
+          Viaje realizado
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Detalles del viaje:</h5>
+            <p class="card-text">
+                Id de Vehículo: {{id}}<br>
+                Origen: CIUDAD {{origen}}<br>
+                Destino: CIUDAD {{destino}}<br>
+                Distancia a recorrer: {{distancia}} kms<br>
+                Combustible consumido: {{combustible}} Lts
+            </p>
+            <hr>
+            <h5 class="card-title">Detalles del vehículo:</h5>
+            <p class="card-text">
+                Id de Vehículo: {{obj.vehiculo_id}}<br>
+                Ubicación actual: {{obj.vehiculo_ubicacion_actual}}<br>
+                Consumo de combustible: {{obj.vehiculo_consumo_combustible}} kms/lt<br>
+                Distancia recorrida: {{obj.vehiculo_distancia_recorrida}} kms<br>
+                Combustible consumido: {{obj.vehiculo_combustible_consumido}} lts
+            </p>
+          <a href="/" class="btn btn-primary">Home</a>
+        </div>
+        <div class="card-footer text-muted">
+          {{date}}
+        </div>
+      </div>
+</div>
+{% endblock%}

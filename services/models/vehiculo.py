@@ -13,7 +13,7 @@ class Vehiculo(db.Model):
     vehiculo_ubicacion_actual = db.Column(db.String(20), nullable=False)
     vehiculo_consumo_combustible = db.Column(db.Integer)
     vehiculo_distancia_recorrida = db.Column(db.Integer, nullable=False)
-    vehiculo_combustible_consumido = db.Column(db.Integer, nullable=False)
+    vehiculo_combustible_consumido = db.Column(db.Float, nullable=False)
 
     def __init__(self, id, ubicacion, consumo, distancia, combustible) -> None:
         self.vehiculo_id = id
@@ -27,4 +27,4 @@ class VehiculoSchema(Schema):
     vehiculo_ubicacion_actual = fields.Str()
     vehiculo_consumo_combustible = fields.Int()
     vehiculo_distancia_recorrida = fields.Int()
-    vehiculo_combustible_consumido = fields.Int()
+    vehiculo_combustible_consumido = fields.Decimal()
