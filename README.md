@@ -15,12 +15,21 @@ Technical Stack:
 ## Instructions
 
 For install the project, run:
+
 ```sh
 > git clone git@github.com:osvaldomx/test-eiya.git myproject
 > cd myproject
 > pip install -r requirements.txt
 > python app.py
 ```
+for database conecction:
+```sql
+> CREATE DATABASE eiya;
+```
+and modify variable `SQLALCHEMY_DATABASE_URI` in `config.py` and `services/__init__.py`:
+```python
+SQLALCHEMY_DATABASE_URI = 'postgresql://<user>:<pass>@127.0.0.1:5432/eiya'
+``` 
 
 For access to app, the url:
 `http://localhost:5000`
